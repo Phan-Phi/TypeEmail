@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  color: rbg(--foreground-rgb);
+  color: black;
   background: linear-gradient(
       to bottom,
       transparent,
