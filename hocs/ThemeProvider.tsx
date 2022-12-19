@@ -12,6 +12,8 @@ const color = {
   neutral3: "#B5B3AF",
   neutral4: "#FDF9F1",
   neutral5: "#E2F471",
+  neutral6: "#FFC828",
+  neutral7: "#DFD3BB",
 };
 
 const defaultTheme = createTheme({
@@ -28,18 +30,23 @@ const defaultTheme = createTheme({
     },
     neutral: {
       neutral1: color.neutral3,
+      neutral6: color.neutral6,
+      neutral7: color.neutral7,
     },
+  },
+  typography: {
+    fontFamily: ["Sora", "Roboto"].join(","),
+    h1: { fontWeight: 600, fontSize: "3.25rem", lineHeight: "4rem" },
+    h2: { fontWeight: 600, fontSize: "3rem", lineHeight: "4rem" },
+    h3: { fontWeight: 600, fontSize: "2.7rem", lineHeight: "3.4rem" },
+    h4: { fontWeight: 600, fontSize: "2.2rem", lineHeight: "3rem" },
+    subtitle1: { fontWeight: 400, fontSize: "1.3rem", lineHeight: "1.75rem" },
+    body1: { fontWeight: 600, fontSize: "1.3rem", lineHeight: "1.75rem" },
+    body2: { fontWeight: 600, fontSize: "1.1rem", lineHeight: "1.3rem" },
   },
 });
 const theme = createTheme({
   ...defaultTheme,
-  typography: {
-    fontFamily: ["Sora", "Roboto"].join(","),
-    h1: { fontWeight: 600, fontSize: "3.25rem", lineHeight: "4rem" },
-    h2: { fontWeight: 600, fontSize: "3.1rem", lineHeight: "4rem" },
-    h3: { fontWeight: 600, fontSize: "2.7rem", lineHeight: "3.4rem" },
-    subtitle1: { fontWeight: 400, fontSize: "1.3rem", lineHeight: "1.75rem" },
-  },
 
   components: {
     MuiButton: {
@@ -54,6 +61,28 @@ const theme = createTheme({
 
         contained: {
           padding: "1rem 3rem",
+        },
+      },
+    },
+
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          "& .MuiTabs-flexContainer": {
+            justifyContent: "center",
+            gap: "10px",
+          },
+          "& .MuiButtonBase-root": {
+            ...defaultTheme.typography.body1,
+            textTransform: "none",
+          },
+          "& .Mui-selected": {
+            backgroundColor: defaultTheme.palette.common.black,
+            borderRadius: "0.8rem",
+            color: defaultTheme.palette.primary.light,
+            ...defaultTheme.typography.body1,
+          },
+          "& .MuiTabs-indicator": { display: "none" },
         },
       },
     },
