@@ -34,7 +34,7 @@ export default function Testmonials() {
 
   const [count, setCount] = useState(1);
 
-  const slider = useRef(null);
+  const slider = useRef<any>(null);
 
   const renderItem = useMemo(() => {
     return TEST_MONIALS.map((el, idx) => {
