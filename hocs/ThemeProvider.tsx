@@ -40,6 +40,7 @@ const defaultTheme = createTheme({
     h2: { fontWeight: 600, fontSize: "3rem", lineHeight: "4rem" },
     h3: { fontWeight: 600, fontSize: "2.7rem", lineHeight: "3.4rem" },
     h4: { fontWeight: 600, fontSize: "2.2rem", lineHeight: "3rem" },
+    h5: { fontWeight: 600, fontSize: "1.8rem", lineHeight: "2.5rem" },
     subtitle1: { fontWeight: 400, fontSize: "1.3rem", lineHeight: "1.75rem" },
     body1: { fontWeight: 600, fontSize: "1.3rem", lineHeight: "1.75rem" },
     body2: { fontWeight: 600, fontSize: "1.1rem", lineHeight: "1.3rem" },

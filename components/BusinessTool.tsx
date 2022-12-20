@@ -18,7 +18,7 @@ export default function BusinessTool() {
     <Box sx={{ backgroundColor: theme.palette.common.black }}>
       <Container>
         <Grid container alignItems="center" padding="4rem 0" spacing={4}>
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <Box>
               <Typography variant="h2" color={theme.palette.common.white}>
                 Join forces with your favorite business tools
@@ -44,7 +44,7 @@ export default function BusinessTool() {
             </Box>
           </Grid>
 
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <Box ref={ref}>
               <Image
                 src="/img/businessTool.png"

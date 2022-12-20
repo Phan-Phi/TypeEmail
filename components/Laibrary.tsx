@@ -13,10 +13,13 @@ import { useMeasure } from "react-use";
 import TabPanel from "./Tabs/TabPanel";
 import TabsMUI from "./Tabs/Tabs";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
+import { useMedia } from "hooks/useMedia";
 
 export default function Laibrary() {
   const theme = useTheme();
+  const { isSmDown, isMdDown } = useMedia();
   const [ref, { width }] = useMeasure();
+
   const [currentTab, setCurrentTab] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -76,8 +79,14 @@ export default function Laibrary() {
     <Container>
       <Grid container>
         <Grid item xs={12} textAlign="center" marginBottom="2rem">
-          <Typography variant="h2">Sendlane Resource Library</Typography>
-          <Typography variant="subtitle1" width="35%" margin="0 auto">
+          <Typography variant={isSmDown ? "h4" : "h2"}>
+            Sendlane Resource Library
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            width={isSmDown ? "75%" : "35%"}
+            margin="0 auto"
+          >
             Cat in tuch with of our compare and take a personal tour of Sraklune
           </Typography>
         </Grid>

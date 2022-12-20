@@ -8,18 +8,25 @@ import {
 } from "@mui/material";
 import WifiTetheringIcon from "@mui/icons-material/WifiTethering";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import { Image } from "components";
 import { useMeasure } from "react-use";
+import { Image } from "components";
+import { useMedia } from "hooks/useMedia";
 
 export default function Newsletter() {
   const [ref, { width }] = useMeasure();
-  const [ref2, { width: width2 }] = useMeasure();
   const theme = useTheme();
+  const { isSmDown } = useMedia();
 
   return (
     <Box sx={{ position: "relative" }} marginBottom="5rem">
       <Container>
-        <Grid container spacing={4}>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            [theme.breakpoints.down("sm")]: { flexDirection: "column-reverse" },
+          }}
+        >
           <Grid item xs={12} md={6} zIndex={2}>
             <Typography variant="h4" width="60%" marginBottom="1rem">
               Drive 30-40% of your revenue with email marekiting
@@ -91,7 +98,7 @@ export default function Newsletter() {
           </Grid>
 
           <Grid item xs={12} md={6} zIndex={2}>
-            <Box width="90%" margin="auto 0">
+            <Box width={isSmDown ? "100%" : "90%"} margin="auto 0">
               <Box
                 ref={ref}
                 sx={{
@@ -103,17 +110,23 @@ export default function Newsletter() {
                 <Image
                   src="/img/Newsletter.png"
                   width="100%"
-                  height={width / (430 / 460)}
+                  height={width / (280 / 300)}
+                  // height={width / (430 / 460)}
                   alt="image"
+                  style={{ objectFit: "cover" }}
                 />
               </Box>
             </Box>
           </Grid>
 
           <Box
-            ref={ref}
-            width="30%"
-            sx={{ position: "absolute", right: 0, zIndex: 1 }}
+            width={isSmDown ? "90%" : "30%"}
+            sx={{
+              position: "absolute",
+              right: 0,
+              zIndex: 1,
+              [theme.breakpoints.down("sm")]: { top: 0 },
+            }}
           >
             <Image
               src="/img/Rectangle 5612.png"

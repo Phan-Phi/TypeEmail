@@ -2,9 +2,11 @@ import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import { useMemo } from "react";
 import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
 import { MENU_SERVICE } from "contants";
+import { useMedia } from "hooks/useMedia";
 
 export default function Service() {
   const theme = useTheme();
+  const { isSmDown, isMdDown } = useMedia();
 
   const renderMenuService = useMemo(() => {
     return MENU_SERVICE.map((el, idx) => {
@@ -12,7 +14,8 @@ export default function Service() {
         <Grid
           key={idx}
           item
-          xs={4}
+          xs={12}
+          md={4}
           sx={{
             "& :hover.MuiBox-root": {
               boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
@@ -60,7 +63,7 @@ export default function Service() {
     <Container>
       <Grid container marginBottom="7rem">
         <Grid item xs={12} marginBottom="3.6rem">
-          <Typography variant="h2" textAlign="center">
+          <Typography variant={isSmDown ? "h4" : "h2"} textAlign="center">
             Our some service
           </Typography>
         </Grid>

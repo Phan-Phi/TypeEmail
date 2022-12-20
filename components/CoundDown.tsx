@@ -10,7 +10,8 @@ export default function CoundDown() {
       return (
         <Grid
           item
-          xs={4}
+          xs={12}
+          md={4}
           key={idx}
           textAlign="center"
           color={theme.palette.common.black}

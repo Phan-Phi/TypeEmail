@@ -11,10 +11,13 @@ import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
 import { Image } from "components";
 import { useMeasure } from "react-use";
 import { RATIO } from "contants";
+import { useMedia } from "hooks/useMedia";
 
 export default function Carousel() {
   const theme = useTheme();
   const [ref, { width }] = useMeasure();
+
+  const { isSmDown, isMdDown } = useMedia();
 
   return (
     <Box
@@ -24,7 +27,7 @@ export default function Carousel() {
         <Grid container sx={{ position: "relative" }}>
           <Grid item xs={12}>
             <Typography
-              variant="h1"
+              variant={isSmDown ? "h4" : "h1"}
               width="75%"
               textAlign="center"
               margin="0 auto"
@@ -40,7 +43,11 @@ export default function Carousel() {
             </Typography>
           </Grid>
 
-          <Grid item xs={12} marginBottom="26.3rem">
+          <Grid
+            item
+            xs={12}
+            marginBottom={isSmDown ? "10rem" : isMdDown ? "15rem" : "26.3rem"}
+          >
             <Stack
               direction="row"
               spacing={3}
@@ -62,6 +69,7 @@ export default function Carousel() {
                 <Typography
                   variant="subtitle1"
                   color={theme.palette.common.white}
+                  display={isSmDown ? "none" : "block"}
                 >
                   How it works
                 </Typography>
@@ -81,7 +89,11 @@ export default function Carousel() {
           <Grid
             item
             xs={12}
-            sx={{ position: "absolute", bottom: -230, width: "100%" }}
+            sx={{
+              position: "absolute",
+              bottom: isSmDown ? -130 : isMdDown ? -250 : -230,
+              width: "100%",
+            }}
           >
             <Box ref={ref}>
               <Image

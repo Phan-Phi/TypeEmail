@@ -18,6 +18,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useMemo, useRef, useState } from "react";
 import { TEST_MONIALS } from "contants";
+import { useMedia } from "hooks/useMedia";
 
 const settings = {
   dots: false,
@@ -29,6 +30,7 @@ const settings = {
 };
 
 export default function Testmonials() {
+  const { isSmDown, isMdDown } = useMedia();
   const theme = useTheme();
   const [ref, { width }] = useMeasure();
 
@@ -39,8 +41,18 @@ export default function Testmonials() {
   const renderItem = useMemo(() => {
     return TEST_MONIALS.map((el, idx) => {
       return (
-        <Box key={idx} sx={{ display: "flex !important", gap: 5 }}>
-          <Box ref={ref} width="50%">
+        <Box
+          key={idx}
+          sx={{
+            display: "flex !important",
+            gap: 5,
+            [theme.breakpoints.down("sm")]: {
+              display: "flex !important",
+              flexDirection: " column-reverse",
+            },
+          }}
+        >
+          <Box ref={ref} width={isSmDown ? "100%" : "50%"}>
             <Image
               src={el.image}
               width="100%"
@@ -50,9 +62,22 @@ export default function Testmonials() {
             />
           </Box>
 
-          <Box width="50%" sx={{ display: "flex", margin: "auto 0" }}>
+          <Box
+            width={isSmDown ? "100%" : "50%"}
+            sx={{ display: "flex", margin: "auto 0" }}
+          >
             <Box>
-              <Typography variant="body1" marginBottom="1.7rem">
+              <Typography
+                variant="body1"
+                marginBottom="1.7rem"
+                sx={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 6,
+                  overflow: "hidden",
+                  WebkitBoxOrient: "vertical",
+                  minHeight: 6 * 28,
+                }}
+              >
                 {el.content}
               </Typography>
               <Typography
@@ -77,13 +102,18 @@ export default function Testmonials() {
 
   return (
     <Container>
-      <Grid container marginBottom={19}>
-        <Grid item xs={12} marginBottom="4.75rem" marginTop="8rem">
+      <Grid container marginBottom={isSmDown ? 8.5 : 19}>
+        <Grid
+          item
+          xs={12}
+          marginBottom={isSmDown ? "3rem" : "4.75rem"}
+          marginTop={isSmDown ? "3.5rem" : "8rem"}
+        >
           <Typography
-            variant="h2"
-            width="50%"
-            textAlign="center"
-            margin="0 auto"
+            variant={isSmDown ? "h4" : "h2"}
+            width={isSmDown ? "60%" : isMdDown ? "80%" : "50%"}
+            textAlign={isSmDown ? "left" : "center"}
+            margin={isSmDown ? "0 left" : "0 auto"}
           >
             See what our customer have to say
           </Typography>

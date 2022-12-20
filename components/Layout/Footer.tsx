@@ -18,7 +18,7 @@ export default function Footer() {
     return MENU_FOOTER.map((el, idx) => {
       if (el.block_type == "image") {
         return (
-          <Grid item xs={1} md={3} key={idx}>
+          <Grid item xs={12} md={3} key={idx}>
             <Image width={150} height={30} src={el.title} alt="logo Footer" />
             <Box marginTop="1.9rem">
               {el.content.map((el, idx) => {
@@ -38,7 +38,7 @@ export default function Footer() {
         );
       } else if (el.block_type == "title") {
         return (
-          <Grid item xs={1} md={3} key={idx}>
+          <Grid item xs={12} md={3} key={idx}>
             <Typography variant="subtitle1" color={theme.palette.common.white}>
               {el.title}
             </Typography>
