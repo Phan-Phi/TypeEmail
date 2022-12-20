@@ -1,9 +1,6 @@
-import { Box, Grid, Stack, Typography, useTheme } from "@mui/material";
-import { Image } from "components";
+import { Grid, Typography, useTheme } from "@mui/material";
 import { useMeasure } from "react-use";
 import CoundDown from "./CoundDown";
-import WifiTetheringIcon from "@mui/icons-material/WifiTethering";
-import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 
 export default function About() {
   const [ref, { width }] = useMeasure();

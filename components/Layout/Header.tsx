@@ -14,7 +14,6 @@ import { useWindowScroll } from "react-use";
 
 export default function Header() {
   const { y } = useWindowScroll();
-  console.log("🚀 ~ file: Header.tsx:17 ~ Header ~ y", y);
   const theme = useTheme();
 
   return (
