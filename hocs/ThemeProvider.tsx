@@ -35,7 +35,7 @@ const defaultTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Sora", "Roboto"].join(","),
+    // fontFamily: ["Sora", "Roboto"].join(","),
     h1: { fontWeight: 600, fontSize: "3.25rem", lineHeight: "4rem" },
     h2: { fontWeight: 600, fontSize: "3rem", lineHeight: "4rem" },
     h3: { fontWeight: 600, fontSize: "2.7rem", lineHeight: "3.4rem" },
