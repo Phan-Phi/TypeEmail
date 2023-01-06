@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@extractus/oembed-extractor": "^3.1.7",
     "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.114",
     "@mui/material": "^5.11.0",
     "@mui/styled-engine-sc": "^5.11.0",
     "@next/font": "13.0.7",

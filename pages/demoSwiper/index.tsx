@@ -51,6 +51,7 @@ const Trail: React.FC<{ open: boolean }> = ({ open, children }) => {
 export default function DemoSwiper() {
   const [open, set] = useState(true);
   const [img, setImg] = useState([]);
+  const [isOpen, setOpen] = useState(false);
 
   const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
   // Set the drag hook and define component movement based on gesture data
@@ -58,7 +59,7 @@ export default function DemoSwiper() {
     api.start({ x: down ? mx : 0, y: down ? my : 0, immediate: down });
   });
 
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   const options = {
     method: "GET",
@@ -81,7 +82,7 @@ export default function DemoSwiper() {
 
   return (
     <>
-      {/* <Hamburger toggled={isOpen} toggle={setOpen} rounded /> */}
+      <Hamburger toggled={isOpen} toggle={setOpen} rounded />
 
       <PullRelease />
 

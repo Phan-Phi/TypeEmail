@@ -5,11 +5,12 @@ import ComponentThemeProvider from "hocs/ThemeProvider";
 import SettingContext from "context/SettingContext";
 import { Box } from "@mui/material";
 import { Outfit } from "hocs/localFont";
+import ThemeProvider2 from "hocs/ThemeProvider2";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ComponentThemeProvider>
+      <ThemeProvider2>
         {/* <Layout>
           <Component {...pageProps} />
         </Layout> */}
@@ -18,7 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </main>
         </SettingContext>
-      </ComponentThemeProvider>
+      </ThemeProvider2>
+      {/* <ComponentThemeProvider>
+      
+      </ComponentThemeProvider> */}
     </>
   );
 }
